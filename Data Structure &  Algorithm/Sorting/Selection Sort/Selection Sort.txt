@@ -1,0 +1,19 @@
+** Find the Max value
+** Swaping the Max value with correct position
+
+Sortig sequence:
+----------------
+
+==> 5 8 3 7 10 6
+            __     swap(10,6)
+
+==> 5 8 3 7 6 10
+      _            swap(8,6)
+
+==> 5 6 3 7 8 10
+      _            swap(6,3)
+
+==> 5 3 6 7 8 10
+    _              swap(5,3)
+
+==> 3 5 6 7 8 10  

@@ -1,0 +1,36 @@
+** Pasher value jodi boro hoy den swap hoy(pasha pashi number er shathe) 
+
+Sorting sequence:
+-----------------
+
+
+==>5 8 2 4 7
+   ___
+
+==>5 8 2 4 7
+     ___
+
+==>5 2 8 4 7
+       ___
+
+==>5 2 4 8 7 
+         ___
+
+==>5 2 4 7 8
+   ___
+
+==>2 5 4 7 8
+     ___
+
+==>2 4 5 7 8
+       ___
+ 
+==>2 4 5 7 8
+         ___
+
+
+
+
+
+
+

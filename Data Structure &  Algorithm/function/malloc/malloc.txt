@@ -1,0 +1,46 @@
+But first, structs and malloc
+
+You already seen the aggregate type struct in tutorial, which allows varying data types to be grouped together at the same address. A couple of features of structs are now relevant.
+
+If we want a struct type to be able to refer to something of its own kind, for example in a linked list, we need a declaration of the following form:
+
+#include <stdlib.h>
+
+ struct node {
+    int data;
+    struct node *next;
+};
+
+struct node *head = NULL;
+struct node *n1, *n2, *n3;
+
+The (possibly) odd feature of the declaration of struct node is that it includes a pointer to itself. From the point-of-view of the compiler, it ensures that struct node has a member that is a pointer to struct node before it has even completed the statement (reached the semicolon) creating struct node. The somewhat similar declaration replacing struct node *next with struct node next is NOT allowed in C: a structure cannot contain a member of the same type!
+
+Self-referential structures have many uses. Given our declarations above, we could now set up a small linked list:
+
+n1 = (struct node *) malloc(sizeof(struct node));
+n2 = (struct node *) malloc(sizeof(struct node));
+n3 = (struct node *) malloc(sizeof(struct node));
+
+head = n1;
+n1->data = 1;
+n1->next = n2;
+n2->data = 2;
+n2->next = n3;
+n3->data = 3;
+n3->next = NULL; /* <-- indicates end of list */
+
+malloc allocates sizeof(struct node) bytes, and returns a void pointer to it, which we cast to struct node *. Under some conditions malloc could fail to allocate the required space, in which case it returns the special address NULL. We don't check for (nor act on) this possibility, but in A2 emalloc does.
+
+The fact that C allows us to declare a pointer to a struct whose members have not yet been defined allows other flexibility. For example, we can use typedef to declare a type that points to struct graph, before struct graph itself has been defined, as the following declaration in A2's graph.h does:
+
+/*
+ * "Graph" abstract data type.
+ */
+
+typedef struct graph *GRAPH;
+
+This allows the user interface in graph.h to declare functions with type GRAPH as parameters or return type, while the actual implementation of struct graph is left to the module defined in graph.c, for example
+
+/* Colour the graph. */
+extern void colour_graph(GRAPH g);
