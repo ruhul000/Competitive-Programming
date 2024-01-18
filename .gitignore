@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/4. CoderByte/FirstFactorial/.vs/FirstFactorial
+/4. CoderByte/FirstFactorial/FirstFactorial/bin/Debug/net6.0
+/4. CoderByte/FirstFactorial/FirstFactorial/obj
+/4. CoderByte/FirstFactorial/FirstFactorial/FirstFactorial.csproj
+/4. CoderByte/FirstFactorial/FirstFactorial.sln
+/4. CoderByte/FirstFactorial/.vs/ProjectEvaluation
